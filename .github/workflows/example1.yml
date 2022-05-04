@@ -30,3 +30,7 @@ jobs:
 
       - name: Run script file
         run: .github/scripts-1/script.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
