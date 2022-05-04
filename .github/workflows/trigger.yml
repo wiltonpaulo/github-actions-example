@@ -31,7 +31,7 @@ jobs:
           REPO: ${{ github.event.repository.name }}
 
       - name: Run script file
-        run: .github/trigger/script.sh
+        run: .github/scripts/trigger.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OWNER: ${{ github.repository_owner }}

@@ -30,5 +30,5 @@ jobs:
           echo test, and deploy your project.
 
       - name: Run script file
-        run: .github/scripts-1/script.sh
+        run: .github/scripts/script-1.sh
 
