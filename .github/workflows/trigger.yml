@@ -25,6 +25,10 @@ jobs:
 
       - name: Run a one-line script
         run: gh workflow run 25436745
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
 
       - name: Run script file
         run: .github/trigger/script.sh
