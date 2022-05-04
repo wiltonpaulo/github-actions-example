@@ -1,4 +1,4 @@
-## Ways to trigger github actions jobs
+# Ways to trigger jobs on Github-Actions
 
 ### Using the command "gh workflow run <jobname>"
 
@@ -15,3 +15,17 @@ Example:
         REPO: ${{ github.event.repository.name }}
 
 ```
+
+### The other is simply configuring a "workflow_run" statement
+
+Example:
+
+```yaml
+workflow_run:
+  workflows: ["trigger"]
+  types: [requested]
+  branches:
+    - main
+```
+
+\*\*\* Every job with this block of code will run after "trigger" job.
