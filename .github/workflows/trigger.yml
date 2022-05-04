@@ -2,6 +2,11 @@ name: trigger
 
 on:
   workflow_dispatch:
+    inputs:
+      debug_enabled:
+        description: 'Manually trigger jobs'
+        required: false
+        default: false
   push:
     branches:
       - main
