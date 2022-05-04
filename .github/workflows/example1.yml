@@ -1,6 +1,7 @@
 name: example1-workflow
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
