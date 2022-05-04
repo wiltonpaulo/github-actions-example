@@ -2,6 +2,11 @@ name: example1-workflow
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["trigger"]
+    types: [requested]
+    branches:
+      - main
   push:
     branches:
       - main
