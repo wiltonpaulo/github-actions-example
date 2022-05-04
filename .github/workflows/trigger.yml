@@ -1,6 +1,8 @@
 name: trigger
 
 on:
+ on:
+   workflow_dispatch:
   push:
     branches:
       - main
@@ -14,19 +16,16 @@ on:
       - .github/trigger/trigger.yml
       - trigger/**
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-      - name: Run a one-line script
-        run: echo Hello, world!
 
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: Run a one-line script
+        run: gh workflow run 25436745
 
       - name: Run script file
         run: .github/trigger/script.sh
