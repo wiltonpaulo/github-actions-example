@@ -1,6 +1,6 @@
 # Ways to trigger jobs on Github-Actions
 
-### Using the command "gh workflow run <jobname>"
+### 1. Using the command "gh workflow run <jobname>"
 
 Is this case you have to allow write permission to github workflow.
 
@@ -16,7 +16,7 @@ Example:
 
 ```
 
-### The other is simply configuring a "workflow_run" statement
+### 2. The other is simply configuring a "workflow_run" statement
 
 Example:
 
