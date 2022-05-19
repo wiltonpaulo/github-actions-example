@@ -4,3 +4,4 @@ echo "Test Script"
 uptime
 ls -la
 
+env
