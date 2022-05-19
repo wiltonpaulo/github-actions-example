@@ -30,7 +30,7 @@ jobs:
         run: echo Hello, world!
 
       - name: Run a one-line script
-        run: echo x|$GITHUB_ENV|x
+        run: echo "x|$GITHUB_ENV|${{ job.environment.name }}|x"
 
       - name: Run a multi-line script
         run: |
