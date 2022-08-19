@@ -40,5 +40,6 @@ jobs:
           path: binfiles
       - shell: bash
         run: |
-          ls -la
-          ls -la binfiles
+          export PATH="binfiles:$PATH"
+          terragrunt --version
+
