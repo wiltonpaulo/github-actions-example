@@ -16,6 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Get terragrunt binary file
+        shell: bash
         run: |
           mkdir -p localbin
           wget -q -O localbin/terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.32.4/terragrunt_linux_amd64
