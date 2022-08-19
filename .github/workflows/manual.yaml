@@ -33,7 +33,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
       - name: Run terragrunt version
         uses: actions/download-artifact@v3
         with:
@@ -45,5 +44,5 @@ jobs:
           terragrunt --version
           ls -la
         with:
-          name: binfiles
-          path: shared_directory
+          name: shared_directory
+          path: binfiles
