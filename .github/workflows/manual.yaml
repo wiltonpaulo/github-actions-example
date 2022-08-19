@@ -22,10 +22,9 @@ jobs:
           chmod +x localbin/terragrunt
           ls -la
         with:
-          name: binary-files
+          name: binfiles
           path: localbin
           retention-days: 1
-
   command:
     name: Deploy to Docker Hub
     runs-on: ubuntu-latest
@@ -40,7 +39,7 @@ jobs:
           terragrunt --version
           ls -la
         with:
-          name: binary-files
+          name: binfiles
           path: localbin
 
 
