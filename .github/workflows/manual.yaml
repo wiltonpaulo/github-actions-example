@@ -23,7 +23,7 @@ jobs:
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
-          name: shared_directory
+          name: shared_dir
           path: binfiles
 
   command:
@@ -36,7 +36,7 @@ jobs:
       - name:  Run terragrunt version
         uses: actions/download-artifact@v3
         with:
-          name: binfiles
+          name: shared_dir
       - shell: bash
         run: |
           export PATH="binfiles:$PATH"
