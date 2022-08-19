@@ -8,7 +8,8 @@ on:
         default: 'warning'
       tags:
         description: 'Test scenario tags'jobs:
-        
+
+jobs:
   docker-build:
     name: Docker build
     runs-on: ubuntu-latest
