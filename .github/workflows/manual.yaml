@@ -15,9 +15,9 @@ jobs:
     steps:
       - shell: bash
         run: |
-          expr 3 + 7 > math-homework.txt
+          mkdir binfiles
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
-          name: homework
-          path: math-homework.txt
+          name: shared_directory
+          path: binfiles
