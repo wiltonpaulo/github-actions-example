@@ -19,7 +19,6 @@ jobs:
         run: |
           mkdir binfiles
           curl -o binfiles/terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.32.4/terragrunt_linux_amd64
-          chmod +x binfiles/terragrunt
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
@@ -40,6 +39,7 @@ jobs:
           path: binfiles
       - shell: bash
         run: |
-          PATH="binfiles:$PATH"
+          chmod +x binfiles/*
+          export PATH="binfiles:$PATH"
           terragrunt --version
 
