@@ -35,11 +35,15 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run terragrunt version
+        uses: actions/download-artifact@v3
+        with:
+          name: binfiles
+      - shell: bash
         run: |
           export PATH="binfiles:$PATH"
           which terragrunt
           terragrunt --version
           ls -la
         with:
-          name: shared_directory
-          path: binfiles
+          name: binfiles
+          path: shared_directory
