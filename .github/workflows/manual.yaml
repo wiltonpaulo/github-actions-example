@@ -7,45 +7,40 @@ on:
         required: true
         default: 'warning'
       tags:
-        description: 'Test scenario tags'jobs:
-
+        description: 'Test scenario tags'
 jobs:
-  docker-build:
+  build:
     name: Docker build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Build Docker image
+      - name: Get terragrunt binary file
         run: |
-          docker build -t foo/bar:$GITHUB_SHA
-          mkdir -p path/to/artifacts
-          docker save foo/bar:$GITHUB_SHA > path/to/artifacts/docker-image.tar
-          
-      - name: Temporarily save Docker image
-        uses: actions/upload-artifact@v2
+          mkdir -p localbin
+          wget -q -O localbin/terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.32.4/terragrunt_linux_amd64
+          chmod +x localbin/terragrunt
+          ls -la
         with:
-          name: docker-artifact
-          path: path/to/artifacts
+          name: binary-files
+          path: localbin
           retention-days: 1
 
-  docker-deploy:
+  command:
     name: Deploy to Docker Hub
     runs-on: ubuntu-latest
-    needs: docker-build
+    needs: build
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Retrieve saved Docker image
-        uses: actions/download-artifact@v2
-        with:
-          name: docker-artifact
-          path: path/to/artifacts
-
-      - name: Docker load
+      - name: Run terragrunt version
         run: |
-          cd path/to/artifacts
-          docker load < docker-image.tar
-          # docker_build_push.sh
+          export PATH="localbin:$PATH"
+          terragrunt --version
+          ls -la
+        with:
+          name: binary-files
+          path: localbin
+
+
