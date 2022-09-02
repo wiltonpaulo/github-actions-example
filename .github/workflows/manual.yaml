@@ -1,6 +1,9 @@
 name: vShasta-v2 (wilton)
 on:
+  workflow_dispatch:
   workflow_run:
+    workflows: ["trigger"]
+    types: [requested]
     environment:
       description: 'Select the vShasta-GCP environment'
       type: environment
